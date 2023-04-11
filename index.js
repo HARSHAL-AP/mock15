@@ -11,10 +11,8 @@ app.use(cors({
 }))
 app.use(express.json())
 
-app.use("/",(req,res)=>{
-  res.send("Welcome To Toor Api")
-})
-app.use("/toor",toorRoute)
+
+app.use("/",toorRoute)
 
 app.listen(process.env.PORT,async()=>{
     try {

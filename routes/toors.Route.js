@@ -4,7 +4,7 @@ const toorRoute=express.Router();
 
 
 
-toorRoute.get("/toor",async(req,res)=>{
+toorRoute.get("/",async(req,res)=>{
 
 const data=await ToorModel.find()
 
