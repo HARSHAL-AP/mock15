@@ -4,7 +4,7 @@ const toorRoute=express.Router();
 
 
 
-toorRoute.get("/all",async(req,res)=>{
+toorRoute.get("/toor",async(req,res)=>{
 
 const data=await ToorModel.find()
 
@@ -12,7 +12,7 @@ res.send(data)
 
 
 })
-toorRoute.get("/all/:sort",async(req,res)=>{
+toorRoute.get("toor/:sort",async(req,res)=>{
 let sort=req.params.sort
   const data=await ToorModel.find().sort({budget_per_person:sort})
   
@@ -20,7 +20,7 @@ let sort=req.params.sort
   
   
 })
-toorRoute.get("/all/:filter",async(req,res)=>{
+toorRoute.get("toor/:filter",async(req,res)=>{
   let sort=req.params.filter
   const data=await ToorModel.find({destination:sort})
   
