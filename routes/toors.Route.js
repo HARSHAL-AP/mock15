@@ -4,15 +4,30 @@ const toorRoute=express.Router();
 
 
 
-toorRoute.get("/toor",async(req,res)=>{
+toorRoute.get("/all",async(req,res)=>{
 
 const data=await ToorModel.find()
+
 res.send(data)
 
 
 })
-
-
+toorRoute.get("/all/:sort",async(req,res)=>{
+let sort=req.params.sort
+  const data=await ToorModel.find().sort({budget_per_person:sort})
+  
+  res.send(data)
+  
+  
+})
+toorRoute.get("/all/:filter",async(req,res)=>{
+  let sort=req.params.filter
+  const data=await ToorModel.find({destination:sort})
+  
+  res.send(data)
+  
+  
+})
 
 
 toorRoute.post("/create",async(req,res)=>{
