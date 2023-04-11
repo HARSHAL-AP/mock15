@@ -13,7 +13,7 @@ res.send(data)
 
 })
 toorRoute.get("toor/:sort",async(req,res)=>{
-let sort=req.params.sort
+let sort=req.query.sort
   const data=await ToorModel.find().sort({budget_per_person:sort})
   
   res.send(data)
@@ -21,7 +21,7 @@ let sort=req.params.sort
   
 })
 toorRoute.get("toor/:filter",async(req,res)=>{
-  let sort=req.params.filter
+  let sort=req.query.filter
   const data=await ToorModel.find({destination:sort})
   
   res.send(data)
